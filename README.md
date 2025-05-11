@@ -1,7 +1,5 @@
 # 🧠 Gabriela Swank | Personal Portfolio v1.0
 
-Welcome to my personal portfolio website — a showcase of my work, experience, and skills as a software engineer.
-
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -13,7 +11,7 @@ Welcome to my personal portfolio website — a showcase of my work, experience, 
 
 ## 📌 Purpose
 
-This project is a fully responsive and animated portfolio site designed to highlight my background, projects, and professional skills. It’s built with a modern tech stack and offers a smooth user experience across devices.
+This project is a fully responsive and animated portfolio site designed to highlight acheivements, professional skills, and interests. It’s built with a modern tech stack and offers a smooth user experience across devices.
 
 ---
 
