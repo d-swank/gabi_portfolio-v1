@@ -1,4 +1,4 @@
-# Gabriela Swank | Personal Portfolio v1.0
+# 🧠 Gabriela Swank | Personal Portfolio v1.0
 
 Welcome to my personal portfolio website — a showcase of my work, experience, and skills as a software engineer.
 
@@ -11,6 +11,12 @@ Welcome to my personal portfolio website — a showcase of my work, experience, 
 
 ---
 
+## 📌 Purpose
+
+This project is a fully responsive and animated portfolio site designed to highlight my background, projects, and professional skills. It’s built with a modern tech stack and offers a smooth user experience across devices.
+
+---
+
 ## 🔗 Live Website
 
 🌐 [gabrielaswank.com](https://www.gabrielaswank.com)
@@ -19,31 +25,35 @@ Welcome to my personal portfolio website — a showcase of my work, experience, 
 
 ## 🚀 Tech Stack
 
-- **Framework:** Next.js 14
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Deployment:** Vercel
+- **Framework:** Next.js 14  
+- **Language:** TypeScript  
+- **Styling:** Tailwind CSS  
+- **Animations:** Framer Motion  
+- **Deployment:** Vercel  
 
-## 🎨 Features
+---
 
-- Fully responsive design
-- Animated scroll effects
-- Mobile-friendly navigation with hamburger menu
-- Projects section with live previews
-- Resume modal viewer
-- Contact section with social media links
-- SEO optimized and fast loading
+## ✨ Features
+
+- Fully responsive design  
+- Scroll-triggered animations  
+- Hamburger menu for mobile navigation  
+- Resume modal with download option  
+- Tabbed About section for better UX  
+- Interactive Contact section with links  
+- Optimized for performance and SEO  
+
+---
 
 ## 📝 Future Improvements
 
-- Add dark/light mode toggle
-- Integrate a blog or recent articles section
-- Add more advanced animations to projects or sections
-- Improve accessibility (ARIA attributes and keyboard navigation)
+- Add dark/light theme toggle  
+- Integrate a blog or recent updates section  
+- More dynamic animations  
+- Enhanced accessibility and keyboard support  
 
 ---
 
 ## 📬 Contact
 
-Feel free to reach out to me through the [Contact](https://www.gabrielaswank.com/#contact) section on the site!
+Feel free to reach out via the [Contact](https://www.gabrielaswank.com/#contact) section of the site!
