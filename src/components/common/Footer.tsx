@@ -19,7 +19,8 @@ export default function Footer() {
       className="w-full py-6 text-center text-rose-800 font-medium border-t border-rose-600 mt-12 space-y-2 bg-gradient-to-r from-pink-200 to-rose-100 backdrop-blur-sm"
     >
       <p className="text-sm">
-        © {new Date().getFullYear()} Gabriela Swank. All rights reserved.
+        Copyright © {new Date().getFullYear()} Gabriela Swank. All rights
+        reserved.
       </p>
 
       <p className="text-sm text-rose-700 transition inline-flex items-center gap-1">
