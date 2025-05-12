@@ -34,7 +34,7 @@ export default function Interests() {
   return (
     <section
       id="interests"
-      className="min-h-screen px-4 flex flex-col items-center justify-center relative"
+      className="min-h-screen px-4 flex flex-col items-center justify-center relative mt-24 md:mt-40"
     >
       <motion.h2
         className="text-4xl font-bold mb-6 text-rose-900"

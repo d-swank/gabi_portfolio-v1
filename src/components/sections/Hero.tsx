@@ -9,12 +9,13 @@ export default function Hero() {
 
   return (
     <motion.section
-      initial={{ opacity: 0, scale: 0.98, filter: "blur(4px)" }}
-      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+      style={{ willChange: "transform, opacity" }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.4, ease: "easeOut" }}
-      className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative"
+      className="min-h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden"
     >
-      {/* Main content */}
+      {/* Greeting */}
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -27,6 +28,7 @@ export default function Hero() {
         </span>
       </motion.h1>
 
+      {/* Subtext */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -37,6 +39,7 @@ export default function Hero() {
         about chasing fraud, dodging threats, and outsmarting the bad guys.
       </motion.p>
 
+      {/* Resume Button */}
       <motion.button
         onClick={() => setShowResume(true)}
         whileHover={{ scale: 1.05 }}
@@ -51,7 +54,7 @@ export default function Hero() {
             viewBox="0 0 20 20"
             width="20"
             height="20"
-            className="text-rose-700 group-hover:translate-x-1"
+            className="text-rose-700 transition-transform duration-300 group-hover:translate-x-1"
           >
             <path
               fillRule="evenodd"
@@ -62,11 +65,11 @@ export default function Hero() {
         </span>
       </motion.button>
 
+      {/* Resume Modal */}
       <ResumeModal
-        show={showResume}
-        onCloseAction={() => setShowResume(false)}
-        title="Resume"
-      ></ResumeModal>
+        isOpen={showResume}
+        closeModalAction={() => setShowResume(false)}
+      />
     </motion.section>
   );
 }

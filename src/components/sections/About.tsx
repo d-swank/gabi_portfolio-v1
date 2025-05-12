@@ -100,7 +100,7 @@ export default function About() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {/* Left Side */}
-      <div className="w-full md:w-1/2 flex flex-col items-center md:items-start space-y-6 font-mono">
+      <div className="w-full md:w-1/2 flex flex-col items-center md:items-start space-y-6 mb-5 md:mb-20 font-mono">
         <motion.h2
           initial={{ opacity: 0, x: -50, scale: 0.95 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
@@ -123,7 +123,7 @@ export default function About() {
                 tabRefs.current[tab] = el;
               }}
               onClick={() => setActiveTab(tab)}
-              className={`relative px-4 py-2 font-medium text-lg md:text-base transition-all duration-300 cursor-pointer ${
+              className={`relative md:px-4 md:py-2 px-2 py-3 font-medium text-sm md:text-base transition-all duration-300 cursor-pointer ${
                 activeTab === tab
                   ? "text-rose-700"
                   : "text-gray-500 hover:text-rose-600"

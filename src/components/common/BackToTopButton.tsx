@@ -20,7 +20,7 @@ export default function BackToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 p-3 rounded-full
+      className={`fixed bottom-6 right-4 z-50 p-3 rounded-full
         bg-gradient-to-br from-pink-200 to-rose-300
         backdrop-blur-sm
         text-rose-800

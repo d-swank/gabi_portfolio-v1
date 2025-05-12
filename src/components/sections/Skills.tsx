@@ -36,14 +36,14 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-screen px-4 flex flex-col items-center justify-center relative"
+      className="min-h-screen px-4 flex flex-col items-center justify-center relative mt-24 md:mt-40"
     >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="text-4xl md:text-5xl font-bold text-rose-900 mb-12 font-mono"
+        className="text-4xl md:text-5xl font-bold text-rose-900 mb-12 font-mono text-center"
       >
         Skills & Strengths
       </motion.h2>

@@ -21,8 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-pink-100 min-h-screen relative`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-pink-100 min-h-screen relative overflow-x-hidden overflow-y-auto`}
       >
         {/* Global floating background */}
         <div className="absolute inset-0 -z-10 pointer-events-none">
