@@ -23,7 +23,6 @@ export default function Interests() {
       icon: <FaDumbbell className="w-8 h-8 text-rose-700" />,
       label: "Fitness",
     },
-
     { icon: <FaJedi className="w-8 h-8 text-rose-700" />, label: "Star Wars" },
     {
       icon: <FaShoppingBag className="w-8 h-8 text-rose-700" />,
@@ -37,7 +36,7 @@ export default function Interests() {
       className="min-h-screen px-4 flex flex-col items-center justify-center relative mt-24 md:mt-40"
     >
       <motion.h2
-        className="text-4xl font-bold mb-6 text-rose-900"
+        className="text-4xl md:text-5xl font-bold mb-6 text-rose-900 font-mono text-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -51,7 +50,7 @@ export default function Interests() {
       </motion.h2>
 
       <motion.p
-        className="text-lg text-rose-700 mb-8 max-w-xl text-center"
+        className="text-lg text-rose-700 mb-8 max-w-xl text-center font-sans"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -77,7 +76,7 @@ export default function Interests() {
         }}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         {interests.map((interest, index) => (
           <motion.div
@@ -86,15 +85,17 @@ export default function Interests() {
               hidden: { opacity: 0, y: 10, scale: 0.98 },
               visible: { opacity: 1, y: 0, scale: 1 },
             }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="bg-white/60 backdrop-blur-md p-6 rounded-2xl shadow-lg flex flex-col items-center gap-2 text-rose-900 cursor-default group transition-transform duration-300 ease-out"
+            className="bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-lg flex flex-col items-center gap-2 text-rose-900 cursor-default group transition-transform duration-300 ease-out"
           >
             <div className="transition-all duration-300 ease-out group-hover:drop-shadow-[0_0_6px_#be123c]">
               {interest.icon}
             </div>
-            <span className="font-semibold">{interest.label}</span>
+            <span className="font-semibold font-sans text-center text-sm md:text-base">
+              {interest.label}
+            </span>
           </motion.div>
         ))}
       </motion.div>

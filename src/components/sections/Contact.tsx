@@ -31,13 +31,13 @@ export default function Contact() {
       <motion.h2
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },
         }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-4xl font-bold mb-6 text-rose-900"
+        className="text-4xl md:text-5xl font-bold mb-6 text-rose-900 text-center font-mono"
       >
         Let’s Connect
       </motion.h2>
@@ -46,13 +46,13 @@ export default function Contact() {
       <motion.p
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },
         }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        className="text-lg text-rose-700 mb-8 max-w-xl text-center"
+        className="text-lg text-rose-700 mb-8 max-w-xl text-center font-sans"
       >
         Feel free to reach out! I’d love to hear from you.
       </motion.p>
@@ -61,7 +61,7 @@ export default function Contact() {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={{
           hidden: {},
           visible: {
@@ -71,7 +71,7 @@ export default function Contact() {
             },
           },
         }}
-        className="bg-white/60 backdrop-blur-md p-8 rounded-2xl shadow-lg flex flex-col gap-4 text-center"
+        className="bg-white/70 backdrop-blur-md p-8 rounded-2xl shadow-lg flex flex-col gap-4 text-center"
       >
         {contactLinks.map(({ href, icon, label }) => (
           <motion.a
