@@ -77,7 +77,7 @@ export default function ExperienceTimeline() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 1 }}
         className="text-4xl md:text-5xl font-bold text-rose-900 mb-12 font-mono text-center"
       >
@@ -95,14 +95,14 @@ export default function ExperienceTimeline() {
                     initial={{ scale: 0.8, opacity: 0 }}
                     whileInView={{ scale: 1.2, opacity: 1 }}
                     whileHover={{ scale: 1.4 }}
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6 }}
                     className="absolute left-7 top-3 w-3 h-3 border-2 rounded-full bg-pink-100 shadow-md border-rose-600"
                   />
                   <motion.div
                     initial={{ opacity: 0, x: -40 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: false, amount: 0.3 }}
+                    viewport={{ once: true, amount: 0.3 }}
                     transition={{
                       duration: 0.7,
                       ease: "easeOut",

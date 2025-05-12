@@ -104,7 +104,7 @@ export default function About() {
         <motion.h2
           initial={{ opacity: 0, x: -50, scale: 0.95 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease: "easeOut" }}
           className="text-4xl md:text-6xl font-bold text-rose-900"
         >

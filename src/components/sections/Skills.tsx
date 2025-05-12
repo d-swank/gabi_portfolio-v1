@@ -41,7 +41,7 @@ export default function Skills() {
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 1, ease: "easeOut" }}
         className="text-4xl md:text-5xl font-bold text-rose-900 mb-12 font-mono text-center"
       >
@@ -54,7 +54,7 @@ export default function Skills() {
             key={index}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
             className="space-y-4"
           >

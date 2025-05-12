@@ -39,7 +39,7 @@ export default function Interests() {
         className="text-4xl md:text-5xl font-bold mb-6 text-rose-900 font-mono text-center"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },
@@ -53,7 +53,7 @@ export default function Interests() {
         className="text-lg text-rose-700 mb-8 max-w-xl text-center font-sans"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         variants={{
           hidden: { opacity: 0, y: 20 },
           visible: { opacity: 1, y: 0 },
