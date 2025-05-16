@@ -11,6 +11,7 @@ import {
   faHeart,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -50,7 +51,7 @@ export default function Navbar() {
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
             className="flex items-center gap-2 text-rose-800 font-semibold font-mono relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-pink-400 after:to-rose-500 after:rounded-full after:transition-all after:duration-500 after:ease-in-out hover:after:w-full"
           >
-            <a
+            <Link
               href="#"
               className="flex items-center gap-2 text-rose-800 font-semibold font-mono relative"
               title="Back to Home"
@@ -60,7 +61,7 @@ export default function Navbar() {
                 className="w-4 h-4 text-rose-800"
               />
               Home
-            </a>
+            </Link>
           </motion.div>
 
           {/* Desktop Links */}
@@ -72,10 +73,8 @@ export default function Navbar() {
               { href: "#interests", label: "Interests", icon: faHeart },
               { href: "#contact", label: "Contact", icon: faEnvelope },
             ].map((link, index) => (
-              <motion.a
+              <motion.div
                 key={link.label}
-                href={link.href}
-                onClick={handleLinkClick}
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -84,13 +83,18 @@ export default function Navbar() {
                   ease: "easeOut",
                   delay: 0.6 + 0.2 * index,
                 }}
-                className="group flex items-center gap-2 justify-center text-rose-700 font-semibold transition-all duration-300 hover:text-rose-900 relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-400 after:to-rose-500 after:rounded-full after:transition-all after:duration-500"
               >
-                <FontAwesomeIcon icon={link.icon} />
-                <span className="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-400 after:to-rose-500 after:rounded-full group-hover:after:w-full after:transition-all after:duration-500">
-                  {link.label}
-                </span>
-              </motion.a>
+                <Link
+                  href={link.href}
+                  onClick={handleLinkClick}
+                  className="group flex items-center gap-2 justify-center text-rose-700 font-semibold transition-all duration-300 hover:text-rose-900 relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-400 after:to-rose-500 after:rounded-full after:transition-all after:duration-500"
+                >
+                  <FontAwesomeIcon icon={link.icon} />
+                  <span className="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-400 after:to-rose-500 after:rounded-full group-hover:after:w-full after:transition-all after:duration-500">
+                    {link.label}
+                  </span>
+                </Link>
+              </motion.div>
             ))}
           </div>
 
@@ -155,7 +159,7 @@ export default function Navbar() {
                 { href: "#interests", label: "Interests", icon: faHeart },
                 { href: "#contact", label: "Contact", icon: faEnvelope },
               ].map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   onClick={handleLinkClick}
@@ -163,7 +167,7 @@ export default function Navbar() {
                 >
                   <FontAwesomeIcon icon={link.icon} />
                   <span>{link.label}</span>
-                </a>
+                </Link>
               ))}
             </motion.div>
           </>
