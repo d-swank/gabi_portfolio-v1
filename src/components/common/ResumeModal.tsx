@@ -70,7 +70,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
               {/* RESUME VIEWER */}
               <div className="w-full h-[60vh] sm:h-[75vh] overflow-auto border rounded-lg border-rose-300 dark:border-rose-600 mb-4">
                 <iframe
-                  src="/Gabriela_Swank_Resume.pdf"
+                  src=""
                   className="w-full h-full"
                   title="Resume PDF Viewer"
                 ></iframe>
@@ -78,7 +78,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
 
               {/* DOWNLOAD LINK */}
               <a
-                href="/Gabriela_Swank_Resume.pdf"
+                href=""
                 download
                 className="inline-block px-6 py-3 bg-rose-600 text-white rounded-lg hover:bg-rose-700 font-mono mx-auto"
               >
