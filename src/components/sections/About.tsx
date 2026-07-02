@@ -27,7 +27,7 @@ export default function About() {
   const tabContent: Record<(typeof tabs)[number], JSX.Element> = {
     "About Me": (
       <>
-        <p className="text-lg font-semibold text-rose-900">
+        <p className="text-lg font-semibold text-rose-200">
           I&apos;m a fraud-prevention-minded finance professional growing into
           cybersecurity, with a strong instinct for patterns, risk, and people.
         </p>
@@ -36,17 +36,17 @@ export default function About() {
           high-pressure moments, protect customer trust, and follow the details
           that matter.
         </p>
-        <ul className="grid gap-2 text-sm font-semibold text-gray-700 sm:grid-cols-2">
-          <li className="rounded-lg border border-rose-100 bg-white/65 px-3 py-2">
+        <ul className="grid gap-2 text-sm font-semibold text-zinc-300 sm:grid-cols-2">
+          <li className="rounded-lg border border-rose-400/15 bg-zinc-900/70 px-3 py-2">
             Detail-oriented under pressure
           </li>
-          <li className="rounded-lg border border-rose-100 bg-white/65 px-3 py-2">
+          <li className="rounded-lg border border-rose-400/15 bg-zinc-900/70 px-3 py-2">
             Customer-first risk awareness
           </li>
-          <li className="rounded-lg border border-rose-100 bg-white/65 px-3 py-2">
+          <li className="rounded-lg border border-rose-400/15 bg-zinc-900/70 px-3 py-2">
             Compliance-minded operations
           </li>
-          <li className="rounded-lg border border-rose-100 bg-white/65 px-3 py-2">
+          <li className="rounded-lg border border-rose-400/15 bg-zinc-900/70 px-3 py-2">
             Curious cybersecurity learner
           </li>
         </ul>
@@ -59,11 +59,11 @@ export default function About() {
           focus on cybersecurity. I started with Information Technology, where
           networking, system security, and hands-on tools made the field click.
         </p>
-        <div className="bg-white/75 border border-rose-200 rounded-lg shadow-md p-5 backdrop-blur-md mt-4">
-          <h3 className="text-lg font-semibold text-rose-800 mb-3">
+        <div className="bg-zinc-900/75 border border-rose-400/20 rounded-lg shadow-md shadow-black/20 p-5 backdrop-blur-md mt-4">
+          <h3 className="text-lg font-semibold text-rose-300 mb-3">
             Education Summary
           </h3>
-          <ul className="space-y-2 text-gray-800 list-disc list-inside text-sm">
+          <ul className="space-y-2 text-zinc-300 list-disc list-inside text-sm">
             <li>
               <strong>Associate of Science</strong> in Information Technology,
               2024
@@ -96,101 +96,103 @@ export default function About() {
   return (
     <motion.section
       id="about"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 px-4 py-20 relative overflow-hidden text-center md:text-left"
+      className="min-h-screen px-4 py-16 relative overflow-hidden sm:px-5 sm:py-20 lg:px-6"
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="w-full md:w-1/2 flex flex-col items-center md:items-start space-y-6 font-mono">
-        <motion.h2
-          initial={{ opacity: 0, x: -50, scale: 0.95 }}
-          whileInView={{ opacity: 1, x: 0, scale: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="text-4xl md:text-6xl font-bold text-rose-900"
-        >
-          Fraud Prevention Meets Cyber Risk
-        </motion.h2>
-        <p className="max-w-md text-base leading-7 text-rose-800 font-sans">
-          A portfolio shaped by finance operations, customer trust, and a clear
-          move toward cybersecurity.
-        </p>
-        <div className="grid w-full max-w-md grid-cols-3 gap-3 font-sans">
-          {[
-            ["Fraud", "Prevention"],
-            ["Banking", "Operations"],
-            ["Cyber", "Security"],
-          ].map(([top, bottom]) => (
-            <div
-              key={top}
-              className="rounded-lg border border-rose-200 bg-white/70 p-4 text-center shadow-sm"
-            >
-              <p className="text-sm font-bold text-rose-800">{top}</p>
-              <p className="text-xs font-semibold text-gray-600">{bottom}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="w-full md:w-1/2 max-w-xl">
-        <div className="relative flex flex-wrap justify-center md:justify-start gap-x-2 border-b border-rose-200 mb-6 text-center font-sans">
-          {tabs.map((tab) => (
-            <button
-              key={tab}
-              ref={(el) => {
-                tabRefs.current[tab] = el;
-              }}
-              onClick={() => setActiveTab(tab)}
-              className={`relative md:px-4 md:py-2 px-2 py-3 font-medium text-sm md:text-base transition-all duration-300 cursor-pointer ${
-                activeTab === tab
-                  ? "text-rose-700"
-                  : "text-gray-500 hover:text-rose-600"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-
-          <motion.div
-            className="absolute bottom-0 h-[2px] bg-rose-500"
-            animate={indicatorStyle}
-            transition={{ type: "spring", stiffness: 500, damping: 30 }}
-          />
+      <div className="mx-auto flex min-h-[calc(100vh-8rem)] w-full max-w-6xl flex-col items-center justify-center gap-8 text-center sm:min-h-[calc(100vh-10rem)] md:flex-row md:text-left">
+        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start space-y-6 font-mono">
+          <motion.h2
+            initial={{ opacity: 0, x: -50, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="text-3xl font-bold text-zinc-100 sm:text-4xl md:text-6xl"
+          >
+            Fraud Prevention Meets Cyber Risk
+          </motion.h2>
+          <p className="max-w-md text-base leading-7 text-zinc-300 font-sans">
+            A portfolio shaped by finance operations, customer trust, and a clear
+            move toward cybersecurity.
+          </p>
+          <div className="grid w-full max-w-md grid-cols-3 gap-2 font-sans sm:gap-3">
+            {[
+              ["Fraud", "Prevention"],
+              ["Banking", "Operations"],
+              ["Cyber", "Security"],
+            ].map(([top, bottom]) => (
+              <div
+                key={top}
+                className="rounded-lg border border-rose-400/20 bg-zinc-900/75 p-3 text-center shadow-sm shadow-black/20 sm:p-4"
+              >
+                <p className="text-sm font-bold text-rose-300">{top}</p>
+                <p className="text-xs font-semibold text-zinc-400">{bottom}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="relative min-h-[430px] sm:min-h-[350px]">
-          <AnimatePresence mode="wait">
+        <div className="w-full md:w-1/2 max-w-xl">
+          <div className="relative flex flex-wrap justify-center md:justify-start gap-x-1 border-b border-rose-400/20 mb-6 text-center font-sans sm:gap-x-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                ref={(el) => {
+                  tabRefs.current[tab] = el;
+                }}
+                onClick={() => setActiveTab(tab)}
+                className={`relative px-2 py-3 text-sm font-medium transition-all duration-300 cursor-pointer sm:px-3 md:px-4 md:py-2 md:text-base ${
+                  activeTab === tab
+                    ? "text-rose-300"
+                    : "text-zinc-500 hover:text-rose-300"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+
             <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="absolute inset-0 text-gray-800 space-y-4 text-base text-center md:text-left font-sans"
-            >
-              {tabContent[activeTab]}
-            </motion.div>
-          </AnimatePresence>
-        </div>
+              className="absolute bottom-0 h-[2px] bg-rose-400"
+              animate={indicatorStyle}
+              transition={{ type: "spring", stiffness: 500, damping: 30 }}
+            />
+          </div>
 
-        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center justify-center rounded-lg bg-rose-700 px-5 py-3 text-sm font-semibold text-white shadow-md hover:bg-rose-800"
-          >
-            Let&apos;s Connect
-          </motion.a>
-          <motion.a
-            href="#experience"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-flex items-center justify-center rounded-lg border border-rose-300 bg-white/70 px-5 py-3 text-sm font-semibold text-rose-800 shadow-sm hover:bg-white"
-          >
-            View Experience
-          </motion.a>
+          <div className="relative">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="text-zinc-300 space-y-4 text-base text-center md:text-left font-sans"
+              >
+                {tabContent[activeTab]}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center justify-center rounded-lg bg-rose-400 px-5 py-3 text-sm font-semibold text-zinc-950 shadow-md shadow-rose-950/30 hover:bg-rose-400"
+            >
+              Let&apos;s Connect
+            </motion.a>
+            <motion.a
+              href="#experience"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className="inline-flex items-center justify-center rounded-lg border border-rose-400/30 bg-zinc-900/80 px-5 py-3 text-sm font-semibold text-rose-200 shadow-sm shadow-black/20 hover:bg-rose-400/10"
+            >
+              View Experience
+            </motion.a>
+          </div>
         </div>
       </div>
     </motion.section>

@@ -32,11 +32,11 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black/30 backdrop-blur-md" />
+          <div className="fixed inset-0 bg-black/75 backdrop-blur-md" />
         </TransitionChild>
 
         {/* MODAL WRAPPER */}
-        <div className="fixed inset-0 flex items-center justify-center p-4 z-[1001]">
+        <div className="fixed inset-0 z-[1001] flex items-start justify-center overflow-y-auto p-4 sm:items-center">
           <TransitionChild
             as={Fragment}
             enter="ease-out duration-300"
@@ -46,11 +46,11 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <DialogPanel className="w-full max-w-4xl relative transform overflow-hidden rounded-lg bg-white text-rose-900 p-4 sm:p-6 shadow-2xl border border-rose-300 font-sans text-center">
+            <DialogPanel className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-4xl transform overflow-y-auto rounded-lg border border-rose-400/30 bg-zinc-950 p-4 text-center font-sans text-zinc-100 shadow-2xl shadow-black/50 sm:p-6">
               {/* CLOSE BUTTON */}
               <button
                 onClick={closeModalAction}
-                className="absolute top-4 right-4 text-rose-700 dark:text-white hover:text-rose-900 dark:hover:text-rose-400"
+                className="absolute top-4 right-4 text-rose-300 hover:text-rose-200"
                 aria-label="Close"
               >
                 <X size={24} />
@@ -62,7 +62,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
               </DialogTitle>
 
               <motion.div
-                className="mb-6 w-24 h-1 bg-rose-500 rounded-full mx-auto"
+                className="mb-6 w-24 h-1 bg-rose-400 rounded-full mx-auto"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ duration: 0.8 }}
@@ -70,10 +70,10 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
               />
 
               {/* RESUME VIEWER */}
-              <div className="w-full h-[58vh] sm:h-[70vh] overflow-auto border rounded-lg border-rose-300 mb-4 bg-rose-50">
+              <div className="mb-4 h-[45dvh] max-h-[520px] w-full overflow-auto rounded-lg border border-rose-400/30 bg-zinc-900 sm:h-[62dvh]">
                 <iframe
                   src={resumePath}
-                  className="w-full h-full"
+                  className="h-full w-full"
                   title="Resume PDF Viewer"
                 />
               </div>
@@ -83,7 +83,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
                 <a
                   href={resumePath}
                   download
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-rose-700 text-white rounded-lg hover:bg-rose-800 font-mono"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-rose-400 text-zinc-950 rounded-lg hover:bg-rose-400 font-mono font-semibold"
                 >
                   <Download size={18} />
                   Download Resume
@@ -92,7 +92,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
                   href={resumePath}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-rose-800 rounded-lg border border-rose-300 hover:bg-rose-50 font-mono"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-zinc-900 text-rose-200 rounded-lg border border-rose-400/30 hover:bg-rose-400/10 font-mono"
                 >
                   <ExternalLink size={18} />
                   Open PDF

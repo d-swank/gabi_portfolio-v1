@@ -54,110 +54,112 @@ export default function Interests() {
   return (
     <section
       id="interests"
-      className="min-h-screen px-4 py-20 flex flex-col items-center justify-center relative"
+      className="min-h-screen px-4 py-16 sm:px-5 sm:py-20 lg:px-6"
     >
-      <motion.h2
-        className="text-4xl md:text-5xl font-bold mb-4 text-rose-900 font-mono text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        Beyond Work
-      </motion.h2>
+      <div className="mx-auto flex min-h-[calc(100vh-8rem)] w-full max-w-6xl flex-col items-center justify-center sm:min-h-[calc(100vh-10rem)]">
+        <motion.h2
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-zinc-100 font-mono text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          Beyond Work
+        </motion.h2>
 
-      <motion.p
-        className="text-lg text-rose-700 mb-10 max-w-2xl text-center font-sans"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0 },
-        }}
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-      >
-        The things I enjoy outside of work still shape how I show up: curious,
-        observant, balanced, and detail-aware.
-      </motion.p>
+        <motion.p
+          className="text-base leading-7 text-zinc-300 mb-8 max-w-2xl text-center font-sans sm:text-lg sm:mb-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        >
+          The things I enjoy outside of work still shape how I show up: curious,
+          observant, balanced, and detail-aware.
+        </motion.p>
 
-      <motion.div
-        className="grid w-full max-w-6xl grid-cols-1 gap-5 md:grid-cols-2"
-        variants={{
-          hidden: {},
-          visible: {
-            transition: {
-              staggerChildren: 0.12,
-              delayChildren: 0.25,
+        <motion.div
+          className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-5"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.12,
+                delayChildren: 0.25,
+              },
             },
-          },
-        }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.25 }}
-      >
-        {interestGroups.map((interest) => {
-          const Icon = interest.icon;
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+        >
+          {interestGroups.map((interest) => {
+            const Icon = interest.icon;
 
-          return (
-            <motion.div
-              key={interest.title}
-              variants={{
-                hidden: { opacity: 0, y: 14, scale: 0.98 },
-                visible: { opacity: 1, y: 0, scale: 1 },
-              }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              whileHover={{ y: -4 }}
-              className="rounded-lg border border-rose-200 bg-white/75 p-5 text-left shadow-md backdrop-blur"
-            >
-              <div className="mb-4 flex items-center gap-3">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-rose-100 text-rose-800">
-                  <Icon size={22} />
-                </span>
-                <h3 className="text-xl font-semibold text-rose-900">
-                  {interest.title}
-                </h3>
-              </div>
-              <p className="text-sm leading-6 text-gray-700">
-                {interest.description}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {interest.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-800 ring-1 ring-rose-100"
-                  >
-                    {tag}
+            return (
+              <motion.div
+                key={interest.title}
+                variants={{
+                  hidden: { opacity: 0, y: 14, scale: 0.98 },
+                  visible: { opacity: 1, y: 0, scale: 1 },
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                whileHover={{ y: -4 }}
+                className="rounded-lg border border-rose-400/20 bg-zinc-900/75 p-4 text-left shadow-md shadow-black/30 backdrop-blur sm:p-5"
+              >
+                <div className="mb-4 flex items-center gap-3">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-rose-400/10 text-rose-300">
+                    <Icon size={22} />
                   </span>
-                ))}
-              </div>
-            </motion.div>
-          );
-        })}
-      </motion.div>
+                  <h3 className="text-xl font-semibold text-zinc-100">
+                    {interest.title}
+                  </h3>
+                </div>
+                <p className="text-sm leading-6 text-zinc-300">
+                  {interest.description}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {interest.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-rose-400/10 px-3 py-1.5 text-xs font-semibold text-rose-200 ring-1 ring-rose-400/15"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
 
-      <div className="mt-8 grid w-full max-w-4xl grid-cols-2 gap-3 md:grid-cols-4">
-        {quickInterests.map((item) => {
-          const Icon = item.icon;
+        <div className="mt-8 grid w-full grid-cols-2 gap-3 md:grid-cols-4">
+          {quickInterests.map((item) => {
+            const Icon = item.icon;
 
-          return (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.45 }}
-              className="flex items-center justify-center gap-2 rounded-lg border border-rose-200 bg-white/65 px-3 py-3 text-sm font-semibold text-rose-800 shadow-sm"
-            >
-              <Icon size={17} />
-              {item.label}
-            </motion.div>
-          );
-        })}
+            return (
+              <motion.div
+                key={item.label}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.45 }}
+                className="flex items-center justify-center gap-2 rounded-lg border border-rose-400/20 bg-zinc-900/65 px-3 py-3 text-sm font-semibold text-rose-200 shadow-sm shadow-black/20"
+              >
+                <Icon size={17} />
+                {item.label}
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

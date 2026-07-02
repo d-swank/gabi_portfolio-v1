@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
-import FloatingShapes from "@/components/common/FloatingShapes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +26,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-pink-100 min-h-screen relative overflow-x-hidden overflow-y-auto`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-[#15151a] text-zinc-200 antialiased`}
       >
-        {/* Global floating background */}
-        <div className="fixed inset-0 -z-10 pointer-events-none">
-          <FloatingShapes />
-        </div>
-
         {children}
       </body>
     </html>

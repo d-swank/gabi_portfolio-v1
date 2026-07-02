@@ -1,16 +1,31 @@
 "use client";
 
+import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function BackToTopButton() {
   const [isVisible, setIsVisible] = useState(false);
+  const [bottomOffset, setBottomOffset] = useState(24);
 
   useEffect(() => {
-    const toggleVisibility = () => {
+    const updateButtonPosition = () => {
+      const footer = document.getElementById("site-footer");
+      const footerOverlap = footer
+        ? Math.max(0, window.innerHeight - footer.getBoundingClientRect().top)
+        : 0;
+
       setIsVisible(window.scrollY > 300);
+      setBottomOffset(footerOverlap + 24);
     };
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+
+    updateButtonPosition();
+    window.addEventListener("scroll", updateButtonPosition, { passive: true });
+    window.addEventListener("resize", updateButtonPosition);
+
+    return () => {
+      window.removeEventListener("scroll", updateButtonPosition);
+      window.removeEventListener("resize", updateButtonPosition);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -20,12 +35,13 @@ export default function BackToTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-4 z-50 p-3 rounded-full
-        bg-gradient-to-br from-pink-200 to-rose-300
+      style={{ bottom: `${bottomOffset}px` }}
+      className={`fixed right-[max(1rem,calc((100vw-72rem)/2))] z-50 rounded-full p-2.5 sm:p-3
+        bg-gradient-to-br from-rose-400 to-rose-600
         backdrop-blur-sm
-        text-rose-800
-        border border-rose-300
-        shadow-md
+        text-zinc-950
+        border border-rose-300/60
+        shadow-md shadow-black/30
         hover:scale-105 hover:shadow-lg
         transition-transform duration-500 ease-in-out
         ${
@@ -36,15 +52,7 @@ export default function BackToTopButton() {
       `}
       aria-label="Back to top"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        height="24px"
-        viewBox="0 -960 960 960"
-        width="24px"
-        fill="currentColor"
-      >
-        <path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z" />
-      </svg>
+      <ArrowUp className="h-5 w-5 sm:h-6 sm:w-6" />
     </button>
   );
 }

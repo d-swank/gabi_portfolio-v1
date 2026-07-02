@@ -113,37 +113,42 @@
 }
 
 body {
-  height: 100%;
-  overflow-y: auto;
-  color: #1f2937;
+  min-height: 100%;
+  overflow: visible;
+  background: #15151a;
+  color: #e4e4e7 !important;
 }
 
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: 5rem;
 }
 
 ::-webkit-scrollbar {
   width: 8px;
-  transition: background-color 0.4s ease, opacity 0.4s ease;
+  transition:
+    background-color 0.4s ease,
+    opacity 0.4s ease;
 }
 
 ::-webkit-scrollbar-track {
-  background: #ffe4e6;
+  background: #15151a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #be123c; /* rose-700 */
+  background-color: #fb7185;
   border-radius: 9999px;
-  border: 2px solid #ffe4e6;
-  opacity: 0.8; /* START slightly transparent */
-  transition: background-color 0.4s ease, opacity 0.4s ease;
+  border: 2px solid #15151a;
+  opacity: 0.8;
+  transition:
+    background-color 0.4s ease,
+    opacity 0.4s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #9f1239;
-  opacity: 1; /* fully opaque on hover */
+  background-color: #e11d48;
+  opacity: 1;
 }
 
 @media (max-width: 768px) {
@@ -160,17 +165,15 @@ html {
   html.no-scroll,
   body.no-scroll {
     overflow: hidden !important;
-    height: 100% !important;
-    position: relative !important;
   }
 
   section {
-    scroll-margin-top: 5.5rem;
+    scroll-margin-top: 5rem;
   }
 
   button,
   a {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-700 focus-visible:ring-offset-2 focus-visible:ring-offset-pink-100;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950;
   }
 
   *,
