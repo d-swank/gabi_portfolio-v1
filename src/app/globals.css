@@ -114,12 +114,14 @@
 
 body {
   height: 100%;
-  overflow-y: hidden
+  overflow-y: auto;
+  color: #1f2937;
 }
 
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-padding-top: 5.5rem;
 }
 
 ::-webkit-scrollbar {
@@ -160,6 +162,15 @@ html {
     overflow: hidden !important;
     height: 100% !important;
     position: relative !important;
+  }
+
+  section {
+    scroll-margin-top: 5.5rem;
+  }
+
+  button,
+  a {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-700 focus-visible:ring-offset-2 focus-visible:ring-offset-pink-100;
   }
 
   *,

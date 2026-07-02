@@ -1,23 +1,29 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MdEmail } from "react-icons/md";
-import { FaLinkedin } from "react-icons/fa";
+import { Download, ExternalLink, Linkedin, Mail } from "lucide-react";
 
-const contactLinks = [
+const contactActions = [
   {
+    title: "Email",
+    description: "Start a direct conversation.",
     href: "mailto:gabrielaswank@icloud.com",
-    icon: (
-      <MdEmail className="w-5 h-5 group-hover:drop-shadow-[0_0_6px_#be123c] transition-all duration-300" />
-    ),
     label: "gabrielaswank@icloud.com",
+    icon: Mail,
   },
   {
+    title: "LinkedIn",
+    description: "Connect professionally.",
     href: "https://www.linkedin.com/in/gswank/",
-    icon: (
-      <FaLinkedin className="w-5 h-5 group-hover:drop-shadow-[0_0_6px_#be123c] transition-all duration-300" />
-    ),
-    label: "LinkedIn",
+    label: "View profile",
+    icon: Linkedin,
+  },
+  {
+    title: "Resume",
+    description: "Download or review the latest resume.",
+    href: "/Gabriela_Swank_Resume.pdf",
+    label: "Open resume",
+    icon: Download,
   },
 ];
 
@@ -25,9 +31,8 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen px-4 flex flex-col items-center justify-center relative"
+      className="min-h-screen px-4 py-20 flex flex-col items-center justify-center relative"
     >
-      {/* Title */}
       <motion.h2
         initial="hidden"
         whileInView="visible"
@@ -37,12 +42,11 @@ export default function Contact() {
           visible: { opacity: 1, y: 0 },
         }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-4xl md:text-5xl font-bold mb-6 text-rose-900 text-center font-mono"
+        className="text-4xl md:text-5xl font-bold mb-5 text-rose-900 text-center font-mono"
       >
-        Let’s Connect
+        Ready to Connect
       </motion.h2>
 
-      {/* Subtitle */}
       <motion.p
         initial="hidden"
         whileInView="visible"
@@ -52,12 +56,12 @@ export default function Contact() {
           visible: { opacity: 1, y: 0 },
         }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        className="text-lg text-rose-700 mb-8 max-w-xl text-center font-sans"
+        className="text-lg text-rose-700 mb-10 max-w-2xl text-center font-sans"
       >
-        Feel free to reach out! I’d love to hear from you.
+        Open to conversations around fraud prevention, cyber risk, compliance,
+        and customer-trust focused operations.
       </motion.p>
 
-      {/* Contact Links Container */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -66,31 +70,50 @@ export default function Contact() {
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.2,
-              delayChildren: 0.4,
+              staggerChildren: 0.15,
+              delayChildren: 0.25,
             },
           },
         }}
-        className="bg-white/70 backdrop-blur-md p-8 rounded-2xl shadow-lg flex flex-col gap-4 text-center"
+        className="grid w-full max-w-5xl grid-cols-1 gap-5 md:grid-cols-3"
       >
-        {contactLinks.map(({ href, icon, label }) => (
-          <motion.a
-            key={label}
-            href={href}
-            target={href.startsWith("http") ? "_blank" : "_self"}
-            variants={{
-              hidden: { opacity: 0, y: 10, scale: 0.98 },
-              visible: { opacity: 1, y: 0, scale: 1 },
-            }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="group flex items-center gap-2 justify-center text-rose-700 font-semibold transition-all duration-300 hover:text-rose-900 relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-400 after:to-rose-500 after:rounded-full after:transition-all after:duration-500"
-          >
-            {icon}
-            <span className="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-400 after:to-rose-500 after:rounded-full group-hover:after:w-full after:transition-all after:duration-500">
-              {label}
-            </span>
-          </motion.a>
-        ))}
+        {contactActions.map(({ title, description, href, label, icon: Icon }) => {
+          const isExternal = href.startsWith("http");
+          const isResume = href.endsWith(".pdf");
+
+          return (
+            <motion.a
+              key={title}
+              href={href}
+              target={isExternal || isResume ? "_blank" : "_self"}
+              rel={isExternal || isResume ? "noopener noreferrer" : undefined}
+              variants={{
+                hidden: { opacity: 0, y: 12, scale: 0.98 },
+                visible: { opacity: 1, y: 0, scale: 1 },
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              whileHover={{ y: -4 }}
+              className="group rounded-lg border border-rose-200 bg-white/75 p-5 text-left shadow-md backdrop-blur transition hover:border-rose-300 hover:bg-white/85"
+            >
+              <div className="mb-5 flex items-center justify-between gap-4">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-rose-100 text-rose-800">
+                  <Icon size={22} />
+                </span>
+                <ExternalLink
+                  size={18}
+                  className="text-rose-400 transition group-hover:translate-x-0.5 group-hover:text-rose-700"
+                />
+              </div>
+              <h3 className="text-xl font-semibold text-rose-900">{title}</h3>
+              <p className="mt-2 text-sm leading-6 text-gray-700">
+                {description}
+              </p>
+              <p className="mt-4 break-words text-sm font-semibold text-rose-700">
+                {label}
+              </p>
+            </motion.a>
+          );
+        })}
       </motion.div>
     </section>
   );

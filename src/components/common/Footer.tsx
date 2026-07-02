@@ -16,10 +16,10 @@ export default function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="w-full py-6 text-center text-rose-800 font-medium border-t border-rose-600 mt-12 space-y-2 bg-gradient-to-r from-pink-200 to-rose-100 backdrop-blur-sm"
+      className="w-full py-6 text-center text-rose-800 font-medium mt-12 space-y-2 bg-pink-100/80 backdrop-blur-sm"
     >
       <p className="text-sm">
-        Copyright © {new Date().getFullYear()} Gabriela Swank. All rights
+        Copyright (c) {new Date().getFullYear()} Gabriela Swank. All rights
         reserved.
       </p>
 

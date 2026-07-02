@@ -6,25 +6,25 @@ import { useMediaQuery } from "@/app/hooks/useMediaQuery";
 const experience = [
   {
     company: "LPL Financial",
-    date: "Jun 2023 – Present",
+    date: "Jun 2023 - Present",
     roles: [
       {
         title: "Senior Operations Specialist",
         details: [
           "Supports operational processes with an emphasis on accuracy and compliance.",
           "Collaborates with teams to ensure high-quality service delivery.",
-          "Maintains integral attitude and adaptability in a fast-paced environment.",
+          "Maintains integrity and adaptability in a fast-paced environment.",
         ],
       },
     ],
   },
   {
     company: "Axos Bank",
-    date: "Sep 2021 – Jun 2023",
+    date: "Sep 2021 - Jun 2023",
     roles: [
       {
         title: "Senior Deposit Ops Specialist - Loss Prevention",
-        date: "Dec 2022 – Jun 2023",
+        date: "Dec 2022 - Jun 2023",
         details: [
           "Managed real-time transaction queues to prevent fraudulent activity.",
           "Identified and escalated high-risk accounts and transactions.",
@@ -33,7 +33,7 @@ const experience = [
       },
       {
         title: "Senior Processing Specialist",
-        date: "Sep 2022 – Dec 2022",
+        date: "Sep 2022 - Dec 2022",
         details: [
           "Performed due diligence on small business account applications.",
           "Ensured compliance with AML/BSA regulations.",
@@ -42,7 +42,7 @@ const experience = [
       },
       {
         title: "Processing Specialist",
-        date: "Sep 2021 – Sep 2022",
+        date: "Sep 2021 - Sep 2022",
         details: [
           "Reviewed new account applications and documentation.",
           "Ensured compliance with regulatory guidelines and risk tolerance policies.",
@@ -52,7 +52,7 @@ const experience = [
   },
   {
     company: "Comerica Bank",
-    date: "Feb 2020 – Sep 2021",
+    date: "Feb 2020 - Sep 2021",
     roles: [
       {
         title: "Vault CSR",
@@ -72,7 +72,7 @@ export default function ExperienceTimeline() {
   return (
     <section
       id="experience"
-      className="min-h-screen px-4 flex flex-col items-center justify-center relative mt-24 md:mt-40"
+      className="min-h-screen px-4 py-20 flex flex-col items-center justify-center relative"
     >
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
@@ -90,7 +90,7 @@ export default function ExperienceTimeline() {
             <div className="absolute left-8 top-0 bottom-0 w-1 bg-rose-600" />
             <div className="space-y-16">
               {experience.map((item, index) => (
-                <div key={index} className="relative flex items-start">
+                <div key={item.company} className="relative flex items-start">
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     whileInView={{ scale: 1.2, opacity: 1 }}
@@ -115,9 +115,9 @@ export default function ExperienceTimeline() {
                     </h3>
                     <p className="italic text-sm text-gray-700">{item.date}</p>
                     <div className="space-y-4 font-sans">
-                      {item.roles.map((role, roleIndex) => (
+                      {item.roles.map((role) => (
                         <div
-                          key={roleIndex}
+                          key={role.title}
                           className="pl-3 border-l-2 border-rose-600"
                         >
                           <h4 className="text-lg font-semibold text-rose-800">
@@ -130,8 +130,8 @@ export default function ExperienceTimeline() {
                             )}
                           </h4>
                           <ul className="list-disc list-inside ml-4 text-gray-800">
-                            {role.details.map((detail, i) => (
-                              <li key={i}>{detail}</li>
+                            {role.details.map((detail) => (
+                              <li key={detail}>{detail}</li>
                             ))}
                           </ul>
                         </div>
@@ -146,20 +146,20 @@ export default function ExperienceTimeline() {
           <div className="space-y-12">
             {experience.map((item, index) => (
               <motion.div
-                key={index}
+                key={item.company}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white/70 p-6 rounded-xl shadow-md border border-rose-200"
+                className="bg-white/75 p-6 rounded-lg shadow-md border border-rose-200"
               >
                 <h3 className="text-xl font-bold text-rose-900 mb-1">
                   {item.company}
                 </h3>
                 <p className="text-sm italic text-gray-600 mb-3">{item.date}</p>
                 <div className="space-y-4">
-                  {item.roles.map((role, i) => (
-                    <div key={i}>
+                  {item.roles.map((role) => (
+                    <div key={role.title}>
                       <h4 className="text-base font-semibold text-rose-800">
                         {role.title}
                         {"date" in role && role.date && (
@@ -170,8 +170,8 @@ export default function ExperienceTimeline() {
                         )}
                       </h4>
                       <ul className="list-disc list-inside ml-4 text-gray-800 text-sm">
-                        {role.details.map((d, j) => (
-                          <li key={j}>{d}</li>
+                        {role.details.map((detail) => (
+                          <li key={detail}>{detail}</li>
                         ))}
                       </ul>
                     </div>

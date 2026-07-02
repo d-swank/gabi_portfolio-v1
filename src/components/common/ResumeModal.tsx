@@ -8,7 +8,7 @@ import {
   TransitionChild,
 } from "@headlessui/react";
 import { Fragment } from "react";
-import { X } from "lucide-react";
+import { Download, ExternalLink, X } from "lucide-react";
 import { motion } from "framer-motion";
 
 type ModalProps = {
@@ -17,6 +17,8 @@ type ModalProps = {
 };
 
 export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
+  const resumePath = "/Gabriela_Swank_Resume.pdf";
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-[1000]" onClose={closeModalAction}>
@@ -44,7 +46,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <DialogPanel className="w-full max-w-4xl relative transform overflow-hidden rounded-2xl bg-gradient-to-r from-white via-pink-100 to-rose-100 dark:from-neutral-700 dark:to-neutral-800 text-rose-900 dark:text-white p-6 shadow-2xl border border-rose-400 font-sans text-center">
+            <DialogPanel className="w-full max-w-4xl relative transform overflow-hidden rounded-lg bg-white text-rose-900 p-4 sm:p-6 shadow-2xl border border-rose-300 font-sans text-center">
               {/* CLOSE BUTTON */}
               <button
                 onClick={closeModalAction}
@@ -68,22 +70,34 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
               />
 
               {/* RESUME VIEWER */}
-              <div className="w-full h-[60vh] sm:h-[75vh] overflow-auto border rounded-lg border-rose-300 dark:border-rose-600 mb-4">
+              <div className="w-full h-[58vh] sm:h-[70vh] overflow-auto border rounded-lg border-rose-300 mb-4 bg-rose-50">
                 <iframe
-                  src=""
+                  src={resumePath}
                   className="w-full h-full"
                   title="Resume PDF Viewer"
-                ></iframe>
+                />
               </div>
 
               {/* DOWNLOAD LINK */}
-              <a
-                href=""
-                download
-                className="inline-block px-6 py-3 bg-rose-600 text-white rounded-lg hover:bg-rose-700 font-mono mx-auto"
-              >
-                Download Resume
-              </a>
+              <div className="flex flex-col sm:flex-row justify-center gap-3">
+                <a
+                  href={resumePath}
+                  download
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-rose-700 text-white rounded-lg hover:bg-rose-800 font-mono"
+                >
+                  <Download size={18} />
+                  Download Resume
+                </a>
+                <a
+                  href={resumePath}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white text-rose-800 rounded-lg border border-rose-300 hover:bg-rose-50 font-mono"
+                >
+                  <ExternalLink size={18} />
+                  Open PDF
+                </a>
+              </div>
             </DialogPanel>
           </TransitionChild>
         </div>

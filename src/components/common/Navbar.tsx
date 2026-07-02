@@ -3,8 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import {
-  faHome,
   faUser,
   faWrench,
   faBriefcase,
@@ -15,6 +15,13 @@ import Link from "next/link";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navLinks = [
+    { href: "#about", label: "About", icon: faUser },
+    { href: "#skills", label: "Strengths", icon: faWrench },
+    { href: "#experience", label: "Experience", icon: faBriefcase },
+    { href: "#interests", label: "Interests", icon: faHeart },
+    { href: "#contact", label: "Contact", icon: faEnvelope },
+  ];
 
   useEffect(() => {
     if (menuOpen) {
@@ -28,6 +35,11 @@ export default function Navbar() {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const handleLinkClick = () => setMenuOpen(false);
+  const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth";
@@ -40,39 +52,39 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: 0 }}
       transition={{ duration: 0.3 }}
-      className="bg-pink-100 fixed top-0 right-0 left-0 z-10"
+      className="fixed top-0 right-0 left-0 z-50 border-b border-rose-200/70 bg-pink-100/90 shadow-sm backdrop-blur-md"
     >
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between ">
-          {/* Logo */}
+      <div className="mx-auto max-w-6xl px-3 sm:px-5 lg:px-6">
+        <div className="flex h-[4.5rem] items-center justify-between">
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-            className="flex items-center gap-2 text-rose-800 font-semibold font-mono relative after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gradient-to-r after:from-pink-400 after:to-rose-500 after:rounded-full after:transition-all after:duration-500 after:ease-in-out hover:after:w-full"
+            className="flex items-center"
           >
             <Link
               href="#"
-              className="flex items-center gap-2 text-rose-800 font-semibold font-mono relative"
+              onClick={handleHomeClick}
+              className="group flex h-14 w-14 items-center justify-center rounded-lg text-rose-800 transition hover:bg-white/50"
               title="Back to Home"
+              aria-label="Back to home"
             >
-              <FontAwesomeIcon
-                icon={faHome}
-                className="w-4 h-4 text-rose-800"
-              />
-              Home
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden">
+                <Image
+                  src="/GS Logo Cutout.svg"
+                  alt=""
+                  width={72}
+                  height={72}
+                  className="h-[4.25rem] w-[4.25rem] max-w-none object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105"
+                  priority
+                />
+              </span>
             </Link>
           </motion.div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex gap-8 items-center">
-            {[
-              { href: "#about", label: "About", icon: faUser },
-              { href: "#skills", label: "Skills", icon: faWrench },
-              { href: "#experience", label: "Experience", icon: faBriefcase },
-              { href: "#interests", label: "Interests", icon: faHeart },
-              { href: "#contact", label: "Contact", icon: faEnvelope },
-            ].map((link, index) => (
+          <div className="hidden md:flex items-center gap-1 lg:gap-2">
+            {navLinks.map((link, index) => (
               <motion.div
                 key={link.label}
                 initial={{ opacity: 0, y: -10 }}
@@ -87,12 +99,10 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={handleLinkClick}
-                  className="group flex items-center gap-2 justify-center text-rose-700 font-semibold transition-all duration-300 hover:text-rose-900 relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-400 after:to-rose-500 after:rounded-full after:transition-all after:duration-500"
+                  className="group flex h-10 items-center gap-2 rounded-lg px-2.5 text-sm font-semibold text-rose-700 transition-all duration-300 hover:bg-white/60 hover:text-rose-900 lg:px-3"
                 >
-                  <FontAwesomeIcon icon={link.icon} />
-                  <span className="relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-pink-400 after:to-rose-500 after:rounded-full group-hover:after:w-full after:transition-all after:duration-500">
-                    {link.label}
-                  </span>
+                  <FontAwesomeIcon icon={link.icon} className="hidden h-4 w-4 lg:block" />
+                  <span>{link.label}</span>
                 </Link>
               </motion.div>
             ))}
@@ -106,7 +116,8 @@ export default function Navbar() {
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 2, ease: "easeOut" }}
-              className="relative w-10 h-10 flex flex-col justify-center items-center gap-2 z-50"
+              className="relative z-50 flex h-11 w-11 flex-col items-center justify-center gap-2 rounded-lg hover:bg-white/50"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
               <motion.span
                 animate={{ rotate: menuOpen ? 45 : 0, y: menuOpen ? 10 : 0 }}
@@ -149,23 +160,17 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.35, ease: "easeInOut" }}
-              className="md:hidden fixed top-16 right-0 w-64 z-40 bg-pink-100 p-6 flex flex-col gap-4 text-rose-800 shadow-lg border-l border-b border-rose-600"
+              className="md:hidden fixed top-[4.5rem] right-0 z-40 flex w-64 flex-col gap-3 border-l border-b border-rose-600 bg-pink-100 p-5 text-rose-800 shadow-lg"
               style={{ willChange: "transform" }}
             >
-              {[
-                { href: "#about", label: "About", icon: faUser },
-                { href: "#skills", label: "Skills", icon: faWrench },
-                { href: "#experience", label: "Experience", icon: faBriefcase },
-                { href: "#interests", label: "Interests", icon: faHeart },
-                { href: "#contact", label: "Contact", icon: faEnvelope },
-              ].map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
                   onClick={handleLinkClick}
-                  className="flex items-center gap-3 text-lg font-semibold hover:text-rose-700 transition-colors"
+                  className="flex h-11 items-center gap-3 rounded-lg px-2 text-base font-semibold transition-colors hover:bg-white/55 hover:text-rose-700"
                 >
-                  <FontAwesomeIcon icon={link.icon} />
+                  <FontAwesomeIcon icon={link.icon} className="h-4 w-4" />
                   <span>{link.label}</span>
                 </Link>
               ))}

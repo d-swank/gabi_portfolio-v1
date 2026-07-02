@@ -1,6 +1,5 @@
-"use client";
-
 import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
 import FloatingShapes from "@/components/common/FloatingShapes";
 
@@ -14,6 +13,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata: Metadata = {
+  title: "Gabriela Swank | Fraud Prevention & Cybersecurity",
+  description:
+    "Portfolio for Gabriela Swank, blending finance operations, fraud prevention, compliance, and cybersecurity.",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,13 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-pink-100 min-h-screen relative overflow-x-hidden overflow-y-auto`}
       >
         {/* Global floating background */}
-        <div className="absolute inset-0 -z-10 pointer-events-none">
+        <div className="fixed inset-0 -z-10 pointer-events-none">
           <FloatingShapes />
         </div>
 

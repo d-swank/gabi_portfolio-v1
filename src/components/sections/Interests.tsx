@@ -2,41 +2,62 @@
 
 import { motion } from "framer-motion";
 import {
-  FaRunning,
-  FaPlane,
-  FaBook,
-  FaMusic,
-  FaSpa,
-  FaDumbbell,
-  FaJedi,
-  FaShoppingBag,
-} from "react-icons/fa";
+  BookOpen,
+  Dumbbell,
+  HeartPulse,
+  Music,
+  Plane,
+  Radar,
+  ShoppingBag,
+  Sparkles,
+} from "lucide-react";
+
+const interestGroups = [
+  {
+    title: "Active Reset",
+    description:
+      "Running, fitness, and wellness help me reset, stay consistent, and keep a clear head.",
+    icon: HeartPulse,
+    tags: ["Running", "Fitness", "Wellness"],
+  },
+  {
+    title: "Curious Input",
+    description:
+      "Reading, travel, and new environments keep me curious about people, systems, and patterns.",
+    icon: BookOpen,
+    tags: ["Reading", "Travel", "Learning"],
+  },
+  {
+    title: "Creative Recharge",
+    description:
+      "Music, shopping, and style give me a more creative way to unwind and notice details.",
+    icon: Music,
+    tags: ["Music", "Style", "Details"],
+  },
+  {
+    title: "Security Mindset",
+    description:
+      "I like stories and puzzles that reward observation, strategy, and thinking a few steps ahead.",
+    icon: Radar,
+    tags: ["Strategy", "Patterns", "Star Wars"],
+  },
+];
+
+const quickInterests = [
+  { label: "Traveling", icon: Plane },
+  { label: "Fitness", icon: Dumbbell },
+  { label: "Shopping", icon: ShoppingBag },
+  { label: "Curiosity", icon: Sparkles },
+];
 
 export default function Interests() {
-  const interests = [
-    { icon: <FaRunning className="w-8 h-8 text-rose-700" />, label: "Running" },
-    { icon: <FaPlane className="w-8 h-8 text-rose-700" />, label: "Traveling" },
-    { icon: <FaBook className="w-8 h-8 text-rose-700" />, label: "Reading" },
-    { icon: <FaSpa className="w-8 h-8 text-rose-700" />, label: "Wellness" },
-    { icon: <FaMusic className="w-8 h-8 text-rose-700" />, label: "Music" },
-    {
-      icon: <FaDumbbell className="w-8 h-8 text-rose-700" />,
-      label: "Fitness",
-    },
-    { icon: <FaJedi className="w-8 h-8 text-rose-700" />, label: "Star Wars" },
-    {
-      icon: <FaShoppingBag className="w-8 h-8 text-rose-700" />,
-      label: "Shopping",
-    },
-  ];
-
   return (
     <section
       id="interests"
-      className="min-h-screen px-4 flex flex-col items-center justify-center relative mt-24 md:mt-40"
+      className="min-h-screen px-4 py-20 flex flex-col items-center justify-center relative"
     >
       <motion.h2
-        className="text-4xl md:text-5xl font-bold mb-6 text-rose-900 font-mono text-center"
+        className="text-4xl md:text-5xl font-bold mb-4 text-rose-900 font-mono text-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -46,11 +67,11 @@ export default function Interests() {
         }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        My Interests
+        Beyond Work
       </motion.h2>
 
       <motion.p
-        className="text-lg text-rose-700 mb-8 max-w-xl text-center font-sans"
+        className="text-lg text-rose-700 mb-10 max-w-2xl text-center font-sans"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -60,47 +81,84 @@ export default function Interests() {
         }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
       >
-        A few things that bring me joy...
+        The things I enjoy outside of work still shape how I show up: curious,
+        observant, balanced, and detail-aware.
       </motion.p>
 
       <motion.div
-        className="grid grid-cols-2 md:grid-cols-4 gap-6"
+        className="grid w-full max-w-6xl grid-cols-1 gap-5 md:grid-cols-2"
         variants={{
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.15,
-              delayChildren: 0.4,
+              staggerChildren: 0.12,
+              delayChildren: 0.25,
             },
           },
         }}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.25 }}
       >
-        {interests.map((interest, index) => (
-          <motion.div
-            key={index}
-            variants={{
-              hidden: { opacity: 0, y: 10, scale: 0.98 },
-              visible: { opacity: 1, y: 0, scale: 1 },
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-lg flex flex-col items-center gap-2 text-rose-900 cursor-default group transition-transform duration-300 ease-out"
-          >
-            <div className="transition-all duration-300 ease-out group-hover:drop-shadow-[0_0_6px_#be123c]">
-              {interest.icon}
-            </div>
-            <span className="font-semibold font-sans text-center text-sm md:text-base">
-              {interest.label}
-            </span>
-          </motion.div>
-        ))}
+        {interestGroups.map((interest) => {
+          const Icon = interest.icon;
+
+          return (
+            <motion.div
+              key={interest.title}
+              variants={{
+                hidden: { opacity: 0, y: 14, scale: 0.98 },
+                visible: { opacity: 1, y: 0, scale: 1 },
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              whileHover={{ y: -4 }}
+              className="rounded-lg border border-rose-200 bg-white/75 p-5 text-left shadow-md backdrop-blur"
+            >
+              <div className="mb-4 flex items-center gap-3">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-rose-100 text-rose-800">
+                  <Icon size={22} />
+                </span>
+                <h3 className="text-xl font-semibold text-rose-900">
+                  {interest.title}
+                </h3>
+              </div>
+              <p className="text-sm leading-6 text-gray-700">
+                {interest.description}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {interest.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-rose-50 px-3 py-1.5 text-xs font-semibold text-rose-800 ring-1 ring-rose-100"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          );
+        })}
       </motion.div>
 
-      <div className="absolute bottom-10 left-10 w-40 h-40 bg-rose-200 rounded-full opacity-30 blur-2xl hidden md:block" />
+      <div className="mt-8 grid w-full max-w-4xl grid-cols-2 gap-3 md:grid-cols-4">
+        {quickInterests.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.45 }}
+              className="flex items-center justify-center gap-2 rounded-lg border border-rose-200 bg-white/65 px-3 py-3 text-sm font-semibold text-rose-800 shadow-sm"
+            >
+              <Icon size={17} />
+              {item.label}
+            </motion.div>
+          );
+        })}
+      </div>
     </section>
   );
 }
