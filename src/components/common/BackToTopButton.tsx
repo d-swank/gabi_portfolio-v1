@@ -43,7 +43,7 @@ export default function BackToTopButton() {
         border border-rose-300/60
         shadow-md shadow-black/30
         hover:scale-105 hover:shadow-lg
-        transition-transform duration-500 ease-in-out
+        transition-[bottom,opacity,transform,box-shadow] duration-300 ease-out
         ${
           isVisible
             ? "opacity-100 translate-y-0"

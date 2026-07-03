@@ -39,6 +39,7 @@ function getCenteredSectionTop(target: HTMLElement) {
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mobileThemeBottomOffset, setMobileThemeBottomOffset] = useState(24);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -70,6 +71,28 @@ export default function Navbar() {
     mediaQuery.addEventListener("change", closeDesktopMenu);
 
     return () => mediaQuery.removeEventListener("change", closeDesktopMenu);
+  }, []);
+
+  useEffect(() => {
+    const updateThemeTogglePosition = () => {
+      const footer = document.getElementById("site-footer");
+      const footerOverlap = footer
+        ? Math.max(0, window.innerHeight - footer.getBoundingClientRect().top)
+        : 0;
+
+      setMobileThemeBottomOffset(footerOverlap + 24);
+    };
+
+    updateThemeTogglePosition();
+    window.addEventListener("scroll", updateThemeTogglePosition, {
+      passive: true,
+    });
+    window.addEventListener("resize", updateThemeTogglePosition);
+
+    return () => {
+      window.removeEventListener("scroll", updateThemeTogglePosition);
+      window.removeEventListener("resize", updateThemeTogglePosition);
+    };
   }, []);
 
   const toggleMenu = () => setMenuOpen((isOpen) => !isOpen);
@@ -249,7 +272,10 @@ export default function Navbar() {
         </AnimatePresence>
       </motion.nav>
 
-      <div className="fixed bottom-6 left-4 z-50 md:hidden">
+      <div
+        className="fixed left-4 z-50 transition-[bottom,opacity,transform] duration-300 ease-out md:hidden"
+        style={{ bottom: `${mobileThemeBottomOffset}px` }}
+      >
         <ThemeToggle />
       </div>
     </>
