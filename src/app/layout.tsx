@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,15 +26,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`try{const t=localStorage.getItem("theme");document.documentElement.classList.toggle("dark",t!=="light");document.documentElement.style.colorScheme=t==="light"?"light":"dark"}catch{document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark"}`}
+        </Script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-[var(--app-bg)] text-[var(--text-body)] antialiased`}
       >
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              'try{const t=localStorage.getItem("theme");document.documentElement.classList.toggle("dark",t!=="light");document.documentElement.style.colorScheme=t==="light"?"light":"dark"}catch{document.documentElement.classList.add("dark");document.documentElement.style.colorScheme="dark"}',
-          }}
-        />
         {children}
       </body>
     </html>

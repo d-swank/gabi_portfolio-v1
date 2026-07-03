@@ -36,7 +36,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
         </TransitionChild>
 
         {/* MODAL WRAPPER */}
-        <div className="fixed inset-0 z-[1001] flex items-start justify-center overflow-y-auto p-4 sm:items-center">
+        <div className="fixed inset-0 z-[1001] flex items-start justify-center overflow-y-auto p-2 sm:items-center sm:p-4">
           <TransitionChild
             as={Fragment}
             enter="ease-out duration-300"
@@ -46,7 +46,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <DialogPanel className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-4xl transform overflow-y-auto rounded-lg border border-rose-400/30 bg-[var(--surface-deep)] p-4 text-center font-sans text-[var(--text-strong)] shadow-2xl shadow-black/50 sm:p-6">
+            <DialogPanel className="relative my-auto flex h-[calc(100dvh-1rem)] w-full max-w-5xl transform flex-col overflow-hidden rounded-lg border border-rose-400/30 bg-[var(--surface-deep)] p-4 text-center font-sans text-[var(--text-strong)] shadow-2xl shadow-black/50 sm:h-[calc(100dvh-2rem)] sm:p-6">
               {/* CLOSE BUTTON */}
               <button
                 onClick={closeModalAction}
@@ -62,7 +62,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
               </DialogTitle>
 
               <motion.div
-                className="mb-6 w-24 h-1 bg-rose-400 rounded-full mx-auto"
+                className="mb-4 w-24 h-1 bg-rose-400 rounded-full mx-auto"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 transition={{ duration: 0.8 }}
@@ -70,7 +70,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
               />
 
               {/* RESUME VIEWER */}
-              <div className="mb-4 h-[45dvh] max-h-[520px] w-full overflow-auto rounded-lg border border-rose-400/30 bg-[var(--surface-card)] sm:h-[62dvh]">
+              <div className="mb-4 min-h-0 w-full flex-1 overflow-auto rounded-lg border border-rose-400/30 bg-[var(--surface-card)]">
                 <iframe
                   src={resumePath}
                   className="h-full w-full"
@@ -79,7 +79,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
               </div>
 
               {/* DOWNLOAD LINK */}
-              <div className="flex flex-col sm:flex-row justify-center gap-3">
+              <div className="flex shrink-0 flex-col sm:flex-row justify-center gap-3">
                 <a
                   href={resumePath}
                   download

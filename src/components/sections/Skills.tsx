@@ -142,7 +142,7 @@ export default function Skills() {
           })}
         </motion.div>
 
-        <div className="mt-8 grid w-full grid-cols-1 gap-4 md:grid-cols-3">
+        <div className="mt-8 grid w-full grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
           {workStyles.map((style) => (
             <motion.div
               key={style.title}
@@ -150,13 +150,17 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45 }}
-              className="rounded-lg border border-rose-400/20 bg-[var(--surface-card-soft)] p-4 text-center shadow-sm shadow-black/20 backdrop-blur"
+              className="flex items-start gap-3 border-b border-rose-400/10 px-1 py-3 text-left last:border-b-0 md:block md:rounded-lg md:border md:border-rose-400/20 md:bg-[var(--surface-card-soft)] md:p-4 md:text-center md:shadow-sm md:shadow-black/20 md:backdrop-blur"
             >
-              <BadgeCheck className="mx-auto mb-2 h-5 w-5 text-[var(--accent-text)]" />
-              <h3 className="font-semibold text-[var(--text-strong)]">{style.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
-                {style.description}
-              </p>
+              <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-[var(--accent-text)] md:mx-auto md:mb-2 md:mt-0" />
+              <div>
+                <h3 className="font-semibold text-[var(--text-strong)]">
+                  {style.title}
+                </h3>
+                <p className="mt-1 text-sm leading-6 text-[var(--text-muted)] md:mt-2">
+                  {style.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -20,10 +20,11 @@ export default function Footer() {
     >
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-5 md:flex-row md:items-center md:justify-between">
         <div className="space-y-1 text-left">
-          <p className="text-sm font-semibold text-[var(--text-strong)]">Gabriela Swank</p>
+          <p className="text-sm font-semibold text-[var(--text-strong)]">
+            Gabriela Swank
+          </p>
           <p className="text-xs text-[var(--text-soft)]">
-            Copyright © {new Date().getFullYear()} Gabriela Swank. All rights
-            reserved.
+            Copyright &copy; 2026 Gabriela Swank. All rights reserved.
           </p>
         </div>
 
