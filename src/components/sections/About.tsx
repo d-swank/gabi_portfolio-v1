@@ -27,7 +27,7 @@ export default function About() {
   const tabContent: Record<(typeof tabs)[number], JSX.Element> = {
     "About Me": (
       <>
-        <p className="text-lg font-semibold text-rose-200">
+        <p className="text-lg font-semibold text-[var(--accent-text)]">
           I&apos;m a fraud-prevention-minded finance professional growing into
           cybersecurity, with a strong instinct for patterns, risk, and people.
         </p>
@@ -36,17 +36,21 @@ export default function About() {
           high-pressure moments, protect customer trust, and follow the details
           that matter.
         </p>
-        <ul className="grid gap-2 text-sm font-semibold text-zinc-300 sm:grid-cols-2">
-          <li className="rounded-lg border border-rose-400/15 bg-zinc-900/70 px-3 py-2">
+        <ul className="grid gap-2 text-sm font-semibold text-[var(--text-muted)] sm:grid-cols-2">
+          <li className="flex items-start gap-2 border-b border-rose-400/10 py-2 text-left last:border-b-0 sm:rounded-lg sm:border sm:border-rose-400/15 sm:bg-[var(--surface-card-soft)] sm:px-3">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />
             Detail-oriented under pressure
           </li>
-          <li className="rounded-lg border border-rose-400/15 bg-zinc-900/70 px-3 py-2">
+          <li className="flex items-start gap-2 border-b border-rose-400/10 py-2 text-left last:border-b-0 sm:rounded-lg sm:border sm:border-rose-400/15 sm:bg-[var(--surface-card-soft)] sm:px-3">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />
             Customer-first risk awareness
           </li>
-          <li className="rounded-lg border border-rose-400/15 bg-zinc-900/70 px-3 py-2">
+          <li className="flex items-start gap-2 border-b border-rose-400/10 py-2 text-left last:border-b-0 sm:rounded-lg sm:border sm:border-rose-400/15 sm:bg-[var(--surface-card-soft)] sm:px-3">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />
             Compliance-minded operations
           </li>
-          <li className="rounded-lg border border-rose-400/15 bg-zinc-900/70 px-3 py-2">
+          <li className="flex items-start gap-2 border-b border-rose-400/10 py-2 text-left last:border-b-0 sm:rounded-lg sm:border sm:border-rose-400/15 sm:bg-[var(--surface-card-soft)] sm:px-3">
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-rose-400" />
             Curious cybersecurity learner
           </li>
         </ul>
@@ -59,11 +63,11 @@ export default function About() {
           focus on cybersecurity. I started with Information Technology, where
           networking, system security, and hands-on tools made the field click.
         </p>
-        <div className="bg-zinc-900/75 border border-rose-400/20 rounded-lg shadow-md shadow-black/20 p-5 backdrop-blur-md mt-4">
-          <h3 className="text-lg font-semibold text-rose-300 mb-3">
+        <div className="bg-[var(--surface-card)] border border-rose-400/20 rounded-lg shadow-md shadow-black/20 p-5 backdrop-blur-md mt-4">
+          <h3 className="text-lg font-semibold text-[var(--accent-text)] mb-3">
             Education Summary
           </h3>
-          <ul className="space-y-2 text-zinc-300 list-disc list-inside text-sm">
+          <ul className="space-y-2 text-[var(--text-muted)] list-disc list-inside text-sm">
             <li>
               <strong>Associate of Science</strong> in Information Technology,
               2024
@@ -109,11 +113,11 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="text-3xl font-bold text-zinc-100 sm:text-4xl md:text-6xl"
+            className="text-3xl font-bold text-[var(--text-strong)] sm:text-4xl md:text-6xl"
           >
             Fraud Prevention Meets Cyber Risk
           </motion.h2>
-          <p className="max-w-md text-base leading-7 text-zinc-300 font-sans">
+          <p className="max-w-md text-base leading-7 text-[var(--text-muted)] font-sans">
             A portfolio shaped by finance operations, customer trust, and a clear
             move toward cybersecurity.
           </p>
@@ -125,10 +129,10 @@ export default function About() {
             ].map(([top, bottom]) => (
               <div
                 key={top}
-                className="rounded-lg border border-rose-400/20 bg-zinc-900/75 p-3 text-center shadow-sm shadow-black/20 sm:p-4"
+                className="rounded-lg border border-rose-400/20 bg-[var(--surface-card)] p-3 text-center shadow-sm shadow-black/20 sm:p-4"
               >
-                <p className="text-sm font-bold text-rose-300">{top}</p>
-                <p className="text-xs font-semibold text-zinc-400">{bottom}</p>
+                <p className="text-sm font-bold text-[var(--accent-text)]">{top}</p>
+                <p className="text-xs font-semibold text-[var(--text-soft)]">{bottom}</p>
               </div>
             ))}
           </div>
@@ -145,8 +149,8 @@ export default function About() {
                 onClick={() => setActiveTab(tab)}
                 className={`relative px-2 py-3 text-sm font-medium transition-all duration-300 cursor-pointer sm:px-3 md:px-4 md:py-2 md:text-base ${
                   activeTab === tab
-                    ? "text-rose-300"
-                    : "text-zinc-500 hover:text-rose-300"
+                    ? "text-[var(--accent-text)]"
+                    : "text-[var(--text-soft)] hover:text-[var(--accent-text)]"
                 }`}
               >
                 {tab}
@@ -168,19 +172,19 @@ export default function About() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="text-zinc-300 space-y-4 text-base text-center md:text-left font-sans"
+                className="text-[var(--text-muted)] space-y-4 text-base text-center md:text-left font-sans"
               >
                 {tabContent[activeTab]}
               </motion.div>
             </AnimatePresence>
           </div>
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center md:justify-start">
+          <div className="mt-6 grid grid-cols-2 gap-3 sm:flex sm:justify-center md:justify-start">
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center justify-center rounded-lg bg-rose-400 px-5 py-3 text-sm font-semibold text-zinc-950 shadow-md shadow-rose-950/30 hover:bg-rose-400"
+              className="inline-flex min-h-11 items-center justify-center rounded-lg bg-rose-400 px-3 py-3 text-center text-sm font-semibold text-zinc-950 shadow-md shadow-rose-950/30 hover:bg-rose-400 sm:px-5"
             >
               Let&apos;s Connect
             </motion.a>
@@ -188,7 +192,7 @@ export default function About() {
               href="#experience"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center justify-center rounded-lg border border-rose-400/30 bg-zinc-900/80 px-5 py-3 text-sm font-semibold text-rose-200 shadow-sm shadow-black/20 hover:bg-rose-400/10"
+              className="inline-flex min-h-11 items-center justify-center rounded-lg border border-rose-400/30 bg-[var(--surface-card)] px-3 py-3 text-center text-sm font-semibold text-[var(--accent-text)] shadow-sm shadow-black/20 hover:bg-rose-400/10 sm:px-5"
             >
               View Experience
             </motion.a>

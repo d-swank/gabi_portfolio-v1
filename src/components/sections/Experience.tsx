@@ -79,20 +79,20 @@ function RoleDetails({
       <h4
         className={
           compact
-            ? "text-base font-semibold text-rose-200"
-            : "text-lg font-semibold text-rose-200"
+            ? "text-base font-semibold text-[var(--accent-text)]"
+            : "text-lg font-semibold text-[var(--accent-text)]"
         }
       >
         {role.title}
         {"date" in role && role.date && (
-          <span className="text-sm text-zinc-400"> ({role.date})</span>
+          <span className="text-sm text-[var(--text-soft)]"> ({role.date})</span>
         )}
       </h4>
       <ul
         className={
           compact
-            ? "list-disc list-inside ml-4 text-zinc-300 text-sm"
-            : "list-disc list-inside ml-4 text-zinc-300"
+            ? "list-disc list-inside ml-4 text-[var(--text-muted)] text-sm"
+            : "list-disc list-inside ml-4 text-[var(--text-muted)]"
         }
       >
         {role.details.map((detail) => (
@@ -115,7 +115,7 @@ export default function ExperienceTimeline() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1 }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-100 mb-10 sm:mb-12 font-mono text-center"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-strong)] mb-10 sm:mb-12 font-mono text-center"
         >
           Professional Experience
         </motion.h2>
@@ -132,7 +132,7 @@ export default function ExperienceTimeline() {
                     whileHover={{ scale: 1.4 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.6 }}
-                    className="absolute left-7 top-3 w-3 h-3 border-2 rounded-full bg-zinc-950 shadow-md shadow-rose-950/40 border-rose-400"
+                    className="absolute left-7 top-3 w-3 h-3 border-2 rounded-full bg-[var(--surface-deep)] shadow-md shadow-rose-950/40 border-rose-400"
                   />
                   <motion.div
                     initial={{ opacity: 0, x: -40 }}
@@ -145,10 +145,10 @@ export default function ExperienceTimeline() {
                     }}
                     className="ml-16 space-y-4"
                   >
-                    <h3 className="text-2xl font-bold text-zinc-100 font-sans">
+                    <h3 className="text-2xl font-bold text-[var(--text-strong)] font-sans">
                       {item.company}
                     </h3>
-                    <p className="italic text-sm text-zinc-400">{item.date}</p>
+                    <p className="italic text-sm text-[var(--text-soft)]">{item.date}</p>
                     <div className="space-y-4 font-sans">
                       {item.roles.map((role) => (
                         <RoleDetails key={role.title} role={role} />
@@ -168,12 +168,12 @@ export default function ExperienceTimeline() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-zinc-900/75 p-4 rounded-lg shadow-md shadow-black/30 border border-rose-400/20"
+                className="bg-[var(--surface-card)] p-4 rounded-lg shadow-md shadow-black/30 border border-rose-400/20"
               >
-                <h3 className="text-xl font-bold text-zinc-100 mb-1">
+                <h3 className="text-xl font-bold text-[var(--text-strong)] mb-1">
                   {item.company}
                 </h3>
-                <p className="text-sm italic text-zinc-400 mb-3">
+                <p className="text-sm italic text-[var(--text-soft)] mb-3">
                   {item.date}
                 </p>
                 <div className="space-y-4">

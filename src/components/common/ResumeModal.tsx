@@ -46,11 +46,11 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <DialogPanel className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-4xl transform overflow-y-auto rounded-lg border border-rose-400/30 bg-zinc-950 p-4 text-center font-sans text-zinc-100 shadow-2xl shadow-black/50 sm:p-6">
+            <DialogPanel className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-4xl transform overflow-y-auto rounded-lg border border-rose-400/30 bg-[var(--surface-deep)] p-4 text-center font-sans text-[var(--text-strong)] shadow-2xl shadow-black/50 sm:p-6">
               {/* CLOSE BUTTON */}
               <button
                 onClick={closeModalAction}
-                className="absolute top-4 right-4 text-rose-300 hover:text-rose-200"
+                className="absolute top-4 right-4 text-[var(--accent-text)] hover:text-[var(--accent-text)]"
                 aria-label="Close"
               >
                 <X size={24} />
@@ -70,7 +70,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
               />
 
               {/* RESUME VIEWER */}
-              <div className="mb-4 h-[45dvh] max-h-[520px] w-full overflow-auto rounded-lg border border-rose-400/30 bg-zinc-900 sm:h-[62dvh]">
+              <div className="mb-4 h-[45dvh] max-h-[520px] w-full overflow-auto rounded-lg border border-rose-400/30 bg-[var(--surface-card)] sm:h-[62dvh]">
                 <iframe
                   src={resumePath}
                   className="h-full w-full"
@@ -92,7 +92,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
                   href={resumePath}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-zinc-900 text-rose-200 rounded-lg border border-rose-400/30 hover:bg-rose-400/10 font-mono"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-[var(--surface-card)] text-[var(--accent-text)] rounded-lg border border-rose-400/30 hover:bg-rose-400/10 font-mono"
                 >
                   <ExternalLink size={18} />
                   Open PDF

@@ -40,7 +40,7 @@ export default function Contact() {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 text-zinc-100 text-center font-mono"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 text-[var(--text-strong)] text-center font-mono"
         >
           Ready to Connect
         </motion.h2>
@@ -54,7 +54,7 @@ export default function Contact() {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="text-base leading-7 text-zinc-300 mb-8 max-w-2xl text-center font-sans sm:text-lg sm:mb-10"
+          className="text-base leading-7 text-[var(--text-muted)] mb-8 max-w-2xl text-center font-sans sm:text-lg sm:mb-10"
         >
           Open to conversations around fraud prevention, cyber risk, compliance,
           and customer-trust focused operations.
@@ -94,24 +94,24 @@ export default function Contact() {
                   }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   whileHover={{ y: -4 }}
-                  className="group rounded-lg border border-rose-400/20 bg-zinc-900/75 p-4 text-left shadow-md shadow-black/30 backdrop-blur transition hover:border-rose-400/40 hover:bg-zinc-900 sm:p-5"
+                  className="group rounded-lg border border-rose-400/20 bg-[var(--surface-card)] p-4 text-left shadow-md shadow-black/30 backdrop-blur transition hover:border-rose-400/40 hover:bg-[var(--surface-card)] sm:p-5"
                 >
                   <div className="mb-5 flex items-center justify-between gap-4">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-rose-400/10 text-rose-300">
+                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-rose-400/15 bg-rose-400/10 text-[var(--accent-text)] dark:bg-transparent">
                       <Icon size={22} />
                     </span>
                     <ExternalLink
                       size={18}
-                      className="text-rose-300/70 transition group-hover:translate-x-0.5 group-hover:text-rose-300"
+                      className="text-[var(--accent-text)] transition group-hover:translate-x-0.5 group-hover:text-[var(--accent-text)]"
                     />
                   </div>
-                  <h3 className="text-xl font-semibold text-zinc-100">
+                  <h3 className="text-xl font-semibold text-[var(--text-strong)]">
                     {title}
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-zinc-300">
+                  <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
                     {description}
                   </p>
-                  <p className="mt-4 break-words text-sm font-semibold text-rose-300">
+                  <p className="mt-4 break-words text-sm font-semibold text-[var(--accent-text)]">
                     {label}
                   </p>
                 </motion.a>

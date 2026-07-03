@@ -45,6 +45,18 @@
 
 :root {
   --radius: 0.625rem;
+  --app-bg: #fff7fb;
+  --surface-nav: rgb(255 247 251 / 0.85);
+  --surface-card: rgb(255 255 255 / 0.82);
+  --surface-card-soft: rgb(255 255 255 / 0.68);
+  --surface-deep: rgb(255 241 246 / 0.84);
+  --text-strong: #18181b;
+  --text-body: #3f3f46;
+  --text-muted: #52525b;
+  --text-soft: #71717a;
+  --accent-text: #be123c;
+  --accent-strong: #9f1239;
+  --subtle-border: rgb(63 63 70 / 0.12);
   --background: oklch(1 0 0);
   --foreground: oklch(0.147 0.004 49.25);
   --card: oklch(1 0 0);
@@ -79,6 +91,18 @@
 }
 
 .dark {
+  --app-bg: #15151a;
+  --surface-nav: rgb(9 9 11 / 0.75);
+  --surface-card: rgb(24 24 27 / 0.75);
+  --surface-card-soft: rgb(24 24 27 / 0.65);
+  --surface-deep: rgb(9 9 11 / 0.8);
+  --text-strong: #f4f4f5;
+  --text-body: #e4e4e7;
+  --text-muted: #d4d4d8;
+  --text-soft: #a1a1aa;
+  --accent-text: #fda4af;
+  --accent-strong: #fb7185;
+  --subtle-border: rgb(255 255 255 / 0.1);
   --background: oklch(0.147 0.004 49.25);
   --foreground: oklch(0.985 0.001 106.423);
   --card: oklch(0.216 0.006 56.043);
@@ -115,8 +139,15 @@
 body {
   min-height: 100%;
   overflow: visible;
-  background: #15151a;
-  color: #e4e4e7 !important;
+  background: var(--app-bg);
+  color: var(--text-body) !important;
+}
+
+.theme-switching,
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
 }
 
 html {
@@ -133,13 +164,13 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #15151a;
+  background: var(--app-bg);
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #fb7185;
   border-radius: 9999px;
-  border: 2px solid #15151a;
+  border: 2px solid var(--app-bg);
   opacity: 0.8;
   transition:
     background-color 0.4s ease,
@@ -173,7 +204,7 @@ html {
 
   button,
   a {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--app-bg)];
   }
 
   *,

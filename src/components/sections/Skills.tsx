@@ -84,7 +84,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-3xl sm:text-4xl md:text-5xl font-bold text-zinc-100 mb-4 font-mono text-center"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--text-strong)] mb-4 font-mono text-center"
         >
           Risk & Security Strengths
         </motion.h2>
@@ -94,7 +94,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mb-7 max-w-2xl text-center text-base leading-7 text-zinc-300 sm:mb-8"
+          className="mb-7 max-w-2xl text-center text-base leading-7 text-[var(--text-muted)] sm:mb-8"
         >
           The throughline is practical risk judgment: fraud prevention, banking
           operations, compliance discipline, and growing cybersecurity foundations.
@@ -114,24 +114,24 @@ export default function Skills() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: index * 0.05 }}
-                className="rounded-lg border border-rose-400/20 bg-zinc-900/75 p-4 text-left shadow-md shadow-black/30 backdrop-blur sm:p-5"
+                className="rounded-lg border border-rose-400/20 bg-[var(--surface-card)] p-4 text-left shadow-md shadow-black/30 backdrop-blur sm:p-5"
               >
                 <div className="mb-4 flex items-center gap-3">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-rose-400/10 text-rose-300">
+                <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-rose-400/15 bg-rose-400/10 text-[var(--accent-text)] dark:bg-transparent">
                     <Icon size={21} />
                   </span>
-                  <h3 className="text-xl font-semibold text-zinc-100 font-sans">
+                  <h3 className="text-xl font-semibold text-[var(--text-strong)] font-sans">
                     {category.title}
                   </h3>
                 </div>
-                <p className="mb-4 text-sm leading-6 text-zinc-300">
+                <p className="mb-4 text-sm leading-6 text-[var(--text-muted)]">
                   {category.description}
                 </p>
                 <ul className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <li
                       key={skill}
-                      className="rounded-full bg-rose-400/10 px-3 py-2 text-sm font-semibold text-rose-200 ring-1 ring-rose-400/15 transition hover:bg-rose-400/15"
+                      className="rounded-full border border-rose-400/15 bg-rose-400/10 px-3 py-2 text-sm font-semibold text-[var(--accent-text)] transition hover:bg-rose-400/15 dark:bg-transparent dark:hover:bg-rose-400/5"
                     >
                       {skill}
                     </li>
@@ -150,11 +150,11 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45 }}
-              className="rounded-lg border border-rose-400/20 bg-zinc-900/65 p-4 text-center shadow-sm shadow-black/20 backdrop-blur"
+              className="rounded-lg border border-rose-400/20 bg-[var(--surface-card-soft)] p-4 text-center shadow-sm shadow-black/20 backdrop-blur"
             >
-              <BadgeCheck className="mx-auto mb-2 h-5 w-5 text-rose-300" />
-              <h3 className="font-semibold text-zinc-100">{style.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-zinc-300">
+              <BadgeCheck className="mx-auto mb-2 h-5 w-5 text-[var(--accent-text)]" />
+              <h3 className="font-semibold text-[var(--text-strong)]">{style.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
                 {style.description}
               </p>
             </motion.div>

@@ -58,7 +58,7 @@ export default function Interests() {
     >
       <div className="mx-auto flex min-h-[calc(100vh-8rem)] w-full max-w-6xl flex-col items-center justify-center sm:min-h-[calc(100vh-10rem)]">
         <motion.h2
-          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-zinc-100 font-mono text-center"
+          className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-[var(--text-strong)] font-mono text-center"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -72,7 +72,7 @@ export default function Interests() {
         </motion.h2>
 
         <motion.p
-          className="text-base leading-7 text-zinc-300 mb-8 max-w-2xl text-center font-sans sm:text-lg sm:mb-10"
+          className="text-base leading-7 text-[var(--text-muted)] mb-8 max-w-2xl text-center font-sans sm:text-lg sm:mb-10"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -113,24 +113,24 @@ export default function Interests() {
                 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 whileHover={{ y: -4 }}
-                className="rounded-lg border border-rose-400/20 bg-zinc-900/75 p-4 text-left shadow-md shadow-black/30 backdrop-blur sm:p-5"
+                className="rounded-lg border border-rose-400/20 bg-[var(--surface-card)] p-4 text-left shadow-md shadow-black/30 backdrop-blur sm:p-5"
               >
                 <div className="mb-4 flex items-center gap-3">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-rose-400/10 text-rose-300">
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-rose-400/15 bg-rose-400/10 text-[var(--accent-text)] dark:bg-transparent">
                     <Icon size={22} />
                   </span>
-                  <h3 className="text-xl font-semibold text-zinc-100">
+                  <h3 className="text-xl font-semibold text-[var(--text-strong)]">
                     {interest.title}
                   </h3>
                 </div>
-                <p className="text-sm leading-6 text-zinc-300">
+                <p className="text-sm leading-6 text-[var(--text-muted)]">
                   {interest.description}
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {interest.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-rose-400/10 px-3 py-1.5 text-xs font-semibold text-rose-200 ring-1 ring-rose-400/15"
+                      className="rounded-full border border-rose-400/15 bg-rose-400/10 px-3 py-1.5 text-xs font-semibold text-[var(--accent-text)] dark:bg-transparent"
                     >
                       {tag}
                     </span>
@@ -152,7 +152,7 @@ export default function Interests() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.45 }}
-                className="flex items-center justify-center gap-2 rounded-lg border border-rose-400/20 bg-zinc-900/65 px-3 py-3 text-sm font-semibold text-rose-200 shadow-sm shadow-black/20"
+                className="flex items-center justify-center gap-2 rounded-lg border border-rose-400/20 bg-[var(--surface-card-soft)] px-3 py-3 text-sm font-semibold text-[var(--accent-text)] shadow-sm shadow-black/20"
               >
                 <Icon size={17} />
                 {item.label}
