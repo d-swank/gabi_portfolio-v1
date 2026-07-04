@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import ThemeToggle from "@/components/common/ThemeToggle";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const navLinks = [
   { href: "#about", label: "About", icon: faUser },
@@ -21,21 +22,6 @@ const navLinks = [
   { href: "#interests", label: "Interests", icon: faHeart },
   { href: "#contact", label: "Contact", icon: faEnvelope },
 ];
-
-function getCenteredSectionTop(target: HTMLElement) {
-  const navHeight =
-    document.querySelector("nav")?.getBoundingClientRect().height ?? 80;
-  const rect = target.getBoundingClientRect();
-  const targetTop = window.scrollY + rect.top;
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
-  const isTallerThanViewport = rect.height > window.innerHeight * 1.15;
-
-  if (isMobile || isTallerThanViewport) {
-    return targetTop - navHeight - 16;
-  }
-
-  return targetTop - (window.innerHeight - rect.height) / 2;
-}
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -102,17 +88,7 @@ export default function Navbar() {
   ) => {
     event.preventDefault();
     setMenuOpen(false);
-
-    const target = document.querySelector<HTMLElement>(href);
-    if (!target) return;
-
-    window.history.pushState(null, "", href);
-    requestAnimationFrame(() => {
-      window.scrollTo({
-        top: Math.max(0, getCenteredSectionTop(target)),
-        behavior: "smooth",
-      });
-    });
+    scrollToSection(href);
   };
 
   const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {

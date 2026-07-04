@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { ArrowRight, Download, Mail, ShieldCheck } from "lucide-react";
 import ResumeModal from "@/components/common/ResumeModal";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 export default function Hero() {
   const [showResume, setShowResume] = useState(false);
@@ -65,6 +66,10 @@ export default function Hero() {
             </motion.button>
             <motion.a
               href="#contact"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection("#contact");
+              }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-rose-400/30 bg-[var(--surface-card)] px-3 py-3 text-center text-sm font-semibold text-[var(--accent-text)] shadow-sm shadow-black/20 hover:bg-rose-400/10 sm:w-auto sm:px-6 sm:py-4 sm:text-lg"

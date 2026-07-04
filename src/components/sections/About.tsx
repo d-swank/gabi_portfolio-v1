@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { JSX, useLayoutEffect, useRef, useState } from "react";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const tabs = ["About Me", "Education", "Future Goals"] as const;
 
@@ -181,7 +182,9 @@ export default function About() {
 
           <div className="mt-6 grid grid-cols-2 gap-3 sm:flex sm:justify-center md:justify-start">
             <motion.a
-              href="#contact"
+              href="https://www.linkedin.com/in/gswank/"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex min-h-11 items-center justify-center rounded-lg bg-rose-400 px-3 py-3 text-center text-sm font-semibold text-zinc-950 shadow-md shadow-rose-950/30 hover:bg-rose-400 sm:px-5"
@@ -190,6 +193,10 @@ export default function About() {
             </motion.a>
             <motion.a
               href="#experience"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection("#experience");
+              }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex min-h-11 items-center justify-center rounded-lg border border-rose-400/30 bg-[var(--surface-card)] px-3 py-3 text-center text-sm font-semibold text-[var(--accent-text)] shadow-sm shadow-black/20 hover:bg-rose-400/10 sm:px-5"
