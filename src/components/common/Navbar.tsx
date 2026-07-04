@@ -126,7 +126,7 @@ export default function Navbar() {
                     alt=""
                     width={112}
                     height={112}
-                    className="h-24 w-24 max-w-none object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105 sm:h-28 sm:w-28"
+                    className="h-20 w-20 max-w-none object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105 sm:h-24 sm:w-24"
                     priority
                   />
                 </span>

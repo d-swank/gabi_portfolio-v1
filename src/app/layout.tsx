@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   title: "Gabriela Swank | Fraud Prevention & Cybersecurity",
   description:
     "Portfolio for Gabriela Swank, blending finance operations, fraud prevention, compliance, and cybersecurity.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    shortcut: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({
