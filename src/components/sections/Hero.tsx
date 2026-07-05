@@ -56,7 +56,7 @@ export default function Hero() {
               onClick={() => setShowResume(true)}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              className="group inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-rose-400 px-3 py-3 text-center text-sm font-semibold text-zinc-950 shadow-lg shadow-rose-950/30 hover:bg-rose-400 sm:w-auto sm:px-6 sm:py-4 sm:text-lg"
+              className="group inline-flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-lg bg-rose-400 px-3 py-3 text-center text-sm font-semibold text-zinc-950 shadow-lg shadow-rose-950/30 hover:bg-rose-400 sm:w-auto sm:px-6 sm:py-4 sm:text-lg"
             >
               <Download className="h-4 w-4 sm:h-5 sm:w-5" />
               View Resume
