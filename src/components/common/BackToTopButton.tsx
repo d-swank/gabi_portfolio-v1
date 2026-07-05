@@ -37,13 +37,13 @@ export default function BackToTopButton() {
       onClick={scrollToTop}
       style={{ bottom: `${bottomOffset}px` }}
       className={`fixed right-[max(1rem,calc((100vw-72rem)/2))] z-50 rounded-full p-2.5 sm:p-3
-        bg-gradient-to-br from-rose-400 to-rose-600
+        bg-[var(--accent-text)]
         backdrop-blur-sm
-        text-zinc-950
-        border border-rose-300/60
-        shadow-md shadow-black/30
+        text-[var(--app-bg)]
+        border border-[var(--accent-strong)]
+        shadow-md shadow-black/25 dark:shadow-black/35
         hover:scale-105 hover:shadow-lg
-        transition-[bottom,opacity,transform,box-shadow] duration-300 ease-out
+        transition-[bottom,opacity,transform,box-shadow,background-color,border-color,color] duration-300 ease-out
         ${
           isVisible
             ? "opacity-100 translate-y-0"
