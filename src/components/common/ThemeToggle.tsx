@@ -33,7 +33,7 @@ export default function ThemeToggle() {
       animate={{ opacity: 1, y: 0, scale: 1 }}
       whileTap={{ scale: 0.95 }}
       transition={{ delay: 0.3, duration: 0.45, ease: "easeOut" }}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-rose-400/20 bg-[var(--surface-card-soft)] text-[var(--accent-text)] shadow-sm shadow-black/10 transition-colors duration-300 hover:bg-rose-400/10 hover:text-[var(--accent-strong)]"
+      className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-rose-400/20 bg-[var(--surface-card-soft)] text-[var(--accent-text)] shadow-sm shadow-black/10 transition-colors duration-300 hover:bg-rose-400/10 hover:text-[var(--accent-strong)]"
     >
       <Sun className="hidden h-5 w-5 dark:block" />
       <Moon className="h-5 w-5 dark:hidden" />
