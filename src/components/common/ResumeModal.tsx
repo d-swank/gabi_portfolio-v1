@@ -50,7 +50,7 @@ export default function ResumeModal({ isOpen, closeModalAction }: ModalProps) {
               {/* CLOSE BUTTON */}
               <button
                 onClick={closeModalAction}
-                className="absolute top-4 right-4 text-[var(--accent-text)] hover:text-[var(--accent-text)]"
+                className="absolute top-4 right-4 text-[var(--accent-text)] hover:text-[var(--accent-text)] cursor-pointer"
                 aria-label="Close"
               >
                 <X size={24} />
