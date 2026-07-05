@@ -122,11 +122,19 @@ export default function Navbar() {
               >
                 <span className="flex h-14 w-14 shrink-0 items-center justify-center sm:h-16 sm:w-16">
                   <Image
+                    src="/GS Logo Design Light.svg"
+                    alt=""
+                    width={112}
+                    height={112}
+                    className="h-20 w-20 max-w-none object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105 dark:hidden sm:h-24 sm:w-24"
+                    priority
+                  />
+                  <Image
                     src="/GS Logo Design.svg"
                     alt=""
                     width={112}
                     height={112}
-                    className="h-20 w-20 max-w-none object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105 sm:h-24 sm:w-24"
+                    className="hidden h-20 w-20 max-w-none object-contain drop-shadow-sm transition-transform duration-300 group-hover:scale-105 dark:block sm:h-24 sm:w-24"
                     priority
                   />
                 </span>
